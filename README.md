@@ -39,5 +39,3 @@ Optimizar la gestión y seguimiento de solicitudes comerciales, asegurando la in
 ## Autora
 Andrea Gómez Franco
 
-## 👩‍💻 Autor
-Andrea Gomez
