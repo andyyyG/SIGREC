@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Se establece el idioma del contenido en español -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <!-- Se define el ícono de la pestaña del navegador -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Se importa la fuente Raleway desde Google Fonts -->
+
+    <link rel="stylesheet" href="./src/css/estadisticas.css" />
+    <!-- Se enlaza la hoja de estilos específica para esta vista -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Se importa la librería Chart.js para gráficas -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Se agrega el plugin para mostrar etiquetas en las gráficas -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Se importa la librería jsPDF para generación de PDF -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Se incluye html2canvas para capturar elementos HTML como imagen -->
+
+    <script src="./src/js/estadisticas.js" type="module" defer></script>
+    <!-- Se carga el script principal de estadísticas como módulo y de forma diferida -->
+
+    <title>Estadísticas</title>
+    <!-- Se define el título de la pestaña del navegador -->
+</head>
+
+<body>
+
+    <div class="grid">
+        <!-- Se estructura el layout principal usando grid -->
+
+        <header class="header">
+            <!-- Se define el encabezado superior -->
+
+            <div class="texto-header">
+                <p class="subtitulo">Consultas</p>
+                <!-- Se muestra el subtítulo de la sección -->
+            </div>
+
+        </header>
+
+        <nav class="nav">
+            <!-- Se define el menú de navegación lateral -->
+
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html" class="inicio">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Se agregan los enlaces de navegación incluyendo cerrar sesión -->
+
+        </nav>
+
+        <main class="main">
+            <!-- Se define el contenido principal de la página -->
+
+            <div class="navI">
+                <!-- Se muestra una subnavegación específica para consultas -->
+
+                <a href="consultaVendedores.html">Vendedores</a>
+                <a href="consultaProductos.html">Productos</a>
+                <a href="estadisticas.html">Estadísticas</a>
+            </div>
+
+            <div class="info">
+                <!-- Se define el contenedor donde se mostrará el contenido estadístico -->
+
+                <h3 class="b">Estadísticas de vendedores</h3>
+                <!-- Se muestra el título de la sección de estadísticas -->
+
+                <button id="btnDescargarPDF">📄 Descargar PDF</button>
+                <!-- Se muestra un botón para descargar las estadísticas como PDF -->
+
+                <div id="contenedorGraficas">
+                    <!-- Se define el contenedor para las gráficas -->
+
+                    <div class="grafica">
+                        <canvas id="graficaGenero"></canvas>
+                        <!-- Se muestra la gráfica de género -->
+                    </div>
+
+                    <div class="grafica">
+                        <canvas id="graficaDias"></canvas>
+                        <!-- Se muestra la gráfica de días de venta -->
+                    </div>
+
+                    <div class="grafica">
+                        <canvas id="graficaPermisos"></canvas>
+                        <!-- Se muestra la gráfica de permisos otorgados -->
+                    </div>
+
+                    <div class="grafica">
+                        <canvas id="graficaCategorias"></canvas>
+                        <!-- Se muestra la gráfica de categorías de productos -->
+                    </div>
+
+                    <div class="grafica">
+                        <canvas id="graficaEstadoProductos"></canvas>
+                        <!-- Se muestra la gráfica de estado de productos -->
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Se agrega funcionalidad al botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Se previene el comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Se eliminan los datos almacenados en localStorage
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Se redirige al usuario a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

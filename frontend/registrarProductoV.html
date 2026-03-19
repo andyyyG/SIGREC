@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+
+<head>
+    <!-- Define el conjunto de caracteres como UTF-8 para admitir acentos y caracteres especiales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0"> 
+
+    <!-- Ícono del sitio que aparece en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos específica para esta vista -->
+    <link rel="stylesheet" href="./src/css/registrarProductoV.css" />
+    <script src="./src/js/registrarProductoV.js" defer></script>
+
+    <!-- Título de la pestaña -->
+    <title>Registrar producto</title>
+</head>
+
+<body>
+
+    <!-- Contenedor principal con diseño en grid -->
+    <div class="grid">
+
+        <!-- Encabezado principal -->
+        <header class="header">
+            <div class="texto-header">
+                <!-- Título de sección -->
+                <p class="subtitulo">Solicitudes</p>
+            </div>
+        </header>
+
+        <!-- Barra de navegación lateral para vendedores -->
+        <nav class="nav">
+            <a href="inicioVendedor.html">✎ Inicio</a><br />
+            <a href="infoV.html">✎ Información</a>
+            <a href="solicitudesGeneralesV.html" class="inicio">✎ Solicitudes</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main">
+
+            <!-- Submenú para navegación entre tipos de solicitud -->
+            <div class="navI">
+                <a href="CrearCuentaV.html">Nuevo vendedor</a>
+                <a href="nuevaSolicitudV.html"> Renovar permiso</a>
+                <a href="registrarProductoV.html">Registrar producto</a>
+                <a href="solicitudesV.html">Historial</a>
+            </div>
+
+            <!-- Contenedor de información y formulario -->
+            <div class="info">
+
+                <!-- Mensaje de bienvenida -->
+                <div id="avisoContainer">
+                    <h2 class="bien">Bienvenido al registro de productos</h2>
+                    <p class="ins">Importante: recuerde que solo puede hacer esta solicitud si su permiso está en estado 'Aprobado'.</p>
+                </div>
+
+                <!-- Aviso que se muestra cuando se activa el formulario -->
+                <div id="aviso" style="display: none;">
+                    <h2 class="aviso">Completa el formulario para realizar una solicitud de renovación de permiso</h2>
+                </div>
+
+                <!-- Contenedor del formulario de productos, inicialmente oculto -->
+                <div id="formularioProductos" class="form" style="display: none; margin-top: 65px; margin-left: 145px; width: 70%;">
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="boton">
+                    <button type="button" id="btnEditar">Nueva solicitud</button>
+                    <button type="button" id="btnGuardar" style="display: none;">Guardar</button>
+                    <button type="button" id="btnCancelar" style="display: none;">Cancelar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script para manejar el cierre de sesión -->
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Previene la acción por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Solicita confirmación al usuario
+            if (confirmar) {
+                // Elimina las claves de sesión del almacenamiento local
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige al usuario a la página principal de inicio de sesión
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

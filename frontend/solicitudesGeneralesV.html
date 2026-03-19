@@ -1,0 +1,96 @@
+<!DOCTYPE html> 
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">+
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+
+    <!-- Icono que aparece en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Archivo de estilos CSS específico para esta página -->
+    <link rel="stylesheet" href="./src/css/solicitudesGeneralesV.css" />
+
+    <!-- Título de la pestaña del navegador -->
+    <title>Solicitudes vendedor</title>
+</head>
+
+<body>
+
+    <!-- Contenedor principal del layout en formato grid -->
+    <div class="grid">
+
+        <!-- Sección del encabezado -->
+        <header class="header">
+            <div class="texto-header">
+                <!-- Título que indica la sección actual -->
+                <p class="subtitulo">Solicitudes</p>
+            </div>
+        </header>
+
+        <!-- Barra de navegación lateral para el vendedor -->
+        <nav class="nav">
+            <!-- Enlace a la página de inicio del vendedor -->
+            <a href="inicioVendedor.html">✎ Inicio</a><br />
+
+            <!-- Enlace a la sección de información personal del vendedor -->
+            <a href="infoV.html">✎ Información</a>
+
+            <!-- Enlace activo a la sección actual (Solicitudes) -->
+            <a href="solicitudesGeneralesV.html" class="inicio">✎ Solicitudes</a>
+
+            <!-- Botón para cerrar sesión -->
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Contenido principal de la página -->
+        <main class="main">
+
+            <!-- Subnavegación dentro de la sección de solicitudes -->
+            <div class="navI">
+                <!-- Enlaces a distintas funciones disponibles para el vendedor -->
+                <a href="CrearCuentaV.html">Nuevo vendedor</a>
+                <a href="nuevaSolicitudV.html"> Renovar permiso</a>
+                <a href="registrarProductoV.html">Registrar producto</a>
+                <a href="solicitudesV.html">Historial</a>
+            </div>
+
+            <!-- Área de información descriptiva -->
+            <div class="info">
+
+                <!-- Título de bienvenida a la sección -->
+                <h3 class="b">Bienvenido a la sección de solicitudes</h3>
+
+                <!-- Descripción general de lo que se puede hacer en esta sección -->
+                <p class="i">Aquí podrás renovar tu permiso de vendedor, registrar nuevos productos y ver el historial y estado de tus solicitudes</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script para manejar el cierre de sesión -->
+    <script>
+        // Agrega un evento al botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Solicita confirmación al usuario
+
+            if (confirmar) {
+                // Elimina las claves de sesión almacenadas en el navegador
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige a la página principal del sitio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

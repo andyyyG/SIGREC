@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/restablecerContrasena.css" />
+
+    <title>Restablecer contraseña</title>
+</head>
+
+<body>
+
+    <!-- Encabezado con logo y menú de navegación -->
+    <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <a href="index.html">
+                    <img src="logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Contenedor principal para restablecer contraseña -->
+        <div class="seg">
+            <div class="contenido">
+
+                <!-- Título del formulario -->
+                <h2 class="titulo">Restablecer contraseña</h2>
+
+                <!-- Formulario para ingresar nueva contraseña y confirmarla -->
+                <form id="formRestablecer" class="formulario">
+                    <input type="password" id="nueva" placeholder="Nueva contraseña" required />
+                    <input type="password" id="confirmar" placeholder="Confirmar contraseña" required />
+                    <button type="submit" class="btn">Cambiar contraseña</button>
+                </form>
+
+                <!-- Contenedor para mensajes de éxito o error -->
+                <p id="mensaje" class="msj"></p>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Obtener token de la URL para validar la solicitud
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        // Manejar el envío del formulario de restablecimiento
+        document.getElementById('formRestablecer').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Obtener los valores de las contraseñas ingresadas
+            const nueva = document.getElementById('nueva').value.trim();
+            const confirmar = document.getElementById('confirmar').value.trim();
+
+            // Verificar que ambas contraseñas coincidan
+            if (nueva !== confirmar) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+
+            // Enviar petición POST al servidor con token y nueva contraseña
+            const res = await fetch('http://localhost:3000/api/cuenta/restablecer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token, nueva }),
+            });
+
+            // Obtener respuesta del servidor y mostrar mensaje
+            const data = await res.json();
+            document.getElementById('mensaje').textContent = data.mensaje || data.error;
+            alert(data.mensaje || data.error);
+
+            // Si el restablecimiento fue exitoso, redirigir a la página principal
+            if (data.mensaje) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

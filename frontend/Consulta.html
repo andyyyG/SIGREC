@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Define el tipo de codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive en dispositivos móviles -->
+
+    <!-- Icono que aparecerá en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <!-- Importación de fuente desde Google Fonts (Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Enlace al archivo CSS principal del proyecto -->
+    <link rel="stylesheet" href="./src/css/Consulta.css" />
+
+    <!-- Enlace al archivo JavaScript asociado con esta vista -->
+    <script src="./src/js/consulta.js" type="module" defer></script>
+
+    <!-- Título de la pestaña en el navegador -->
+    <title>Consulta</title>
+</head>
+
+<body>
+    <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <!-- Logo que al hacer clic redirige al inicio -->
+                <a href="index.html">
+                    <img src="logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <!-- Subtítulo del sitio -->
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <!-- Menú de navegación principal -->
+        <nav class="menu">
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección decorativa -->
+        <div class="seg">
+
+            <!-- Contenedor general de la búsqueda -->
+            <div class="contenido">
+
+                <!-- Texto introductorio para guiar al usuario -->
+                <h3 class="b">
+                    Haz una búsqueda de productos por nombre del producto, del vendedor, categoría o días en los que se
+                    vende
+                </h3>
+
+                <div class="busqueda-container">
+                    <!-- Input de texto para buscar por nombre -->
+                    <input type="text" id="inputBusqueda" placeholder="Buscar por nombre del producto o vendedor..."  />
+
+                    <!-- Filtro por categoría -->
+                    <select id="selectCategoría">
+                        <option value="">Categoría</option>
+                        <option value="comida">Comida</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="dulces">Dulces</option>
+                        <option value="postres">Postres</option>
+                        <option value="papeleria">Papelería</option>
+                        <option value="ropa">Ropa</option>
+                    </select>
+
+                    <!-- Filtro por día -->
+                    <select id="selectDias">
+                        <option value="">Días</option>
+                        <option value="todos">Todos</option>
+                        <option value="lunes">Lunes</option>
+                        <option value="martes">Martes</option>
+                        <option value="miercoles">Miércoles</option>
+                        <option value="jueves">Jueves</option>
+                        <option value="viernes">Viernes</option>
+                        <option value="sabado">Sábado</option>
+                        <option value="domingo">Domingo</option>
+                    </select>
+
+                    <!-- Botón para ejecutar la búsqueda -->
+                    <button id="btnBuscar">🔍 Buscar</button>
+                </div>
+
+                <!-- Contenedor donde se mostrarán los resultados de búsqueda -->
+                <div id="resultados"></div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/infoComercialV.css" />
+    <script src="./src/js/infoComercialV.js" defer></script>
+    <title>Información Comercial</title>
+
+</head>
+
+<body>
+
+    <div class="grid"> <!-- Se define el contenedor principal en forma de cuadrícula -->
+
+        <header class="header"> <!-- Se inserta el encabezado de la página -->
+            <div class="texto-header">
+                <p class="subtitulo">Información</p> <!-- Se muestra el subtítulo del encabezado -->
+            </div>
+        </header>
+
+        <nav class="nav"> <!-- Se inserta la barra de navegación lateral -->
+            <a href="inicioVendedor.html" >✎ Inicio</a><br /> <!-- Enlace a la página de inicio del vendedor -->
+            <a href="infoV.html" class="inicio">✎ Información</a> <!-- Enlace a la sección de información -->
+            <a href="solicitudesGeneralesV.html">✎ Solicitudes</a> <!-- Enlace a la sección de solicitudes -->
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a> <!-- Botón para cerrar sesión -->
+        </nav>
+
+        <main class="main"> <!-- Se define la sección principal del contenido -->
+            <div class="navI"> <!-- Se insertan los subenlaces internos de navegación -->
+                <a href="infoPersonalV.html">Información personal</a> <!-- Enlace a info personal -->
+                <a href="infoComercialV.html">Información comercial</a> <!-- Enlace a info comercial -->
+                <a href="cuentaV.html">Información de la cuenta</a><br /> <!-- Enlace a info de cuenta -->
+            </div>
+
+            <div class="info"> <!-- Se muestra el contenedor de la información comercial -->
+                <h2 class="encabezado">Información Comercial</h2> <!-- Título de la sección -->
+
+                <div class="datos"> <!-- Se agrupan los datos principales -->
+
+                    <div class="datoss"> <!-- Se muestra el estado del permiso -->
+                        <strong>Estado del permiso de vendedor:</strong>
+                        <div id="permisoVText"></div> <!-- Se insertará el estado dinámicamente -->
+                        <div id="vigenciaText" style="font-style: italic; color: gray;"></div> <!-- Se insertará la vigencia -->
+                    </div>
+
+                    <div class="datoss"> <!-- Se muestran los días de venta -->
+                        <strong>Días de venta:</strong>
+                        <div id="diasVText" style="text-transform: capitalize;"></div> <!-- Se insertarán los días dinámicamente -->
+                    </div>
+
+                    <div class="productos"> <!-- Se muestra el título para los productos -->
+                        <strong>Productos:</strong>
+                    </div>
+
+                </div>
+
+                <div class="boton"> <!-- Se insertan los botones de acción -->
+                    <button type="button" id="btnEditar">Editar Información</button> <!-- Botón para editar -->
+                    <button type="button" id="btnGuardar" style="display: none;">Guardar Cambios</button> <!-- Botón para guardar, inicialmente oculto -->
+                </div>
+
+                <div class="aviso"> <!-- Se muestra un aviso informativo -->
+                    <h5>Importante: recuerda que para actualizar tu información comercial es importante que el estado de
+                        tu permiso sea "Aprobado"</h5>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Se agrega funcionalidad al botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Se evita que el enlace navegue automáticamente
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Se solicita confirmación
+            if (confirmar) {
+                // Se elimina el ID de usuario y vendedor del almacenamiento local
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Se redirige al usuario a la página principal
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

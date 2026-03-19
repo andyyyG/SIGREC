@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Define el idioma del contenido como español -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres -->
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png"> <!-- Ícono del sitio -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Mejora el rendimiento al conectar previamente con Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Conexión previa con Google Fonts con CORS -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"> <!-- Fuente personalizada desde Google Fonts -->
+
+    <link rel="stylesheet" href="./src/css/cuentaA.css" /> <!-- Hoja de estilos CSS -->
+    <script src="./src/js/cuentaV.js" defer></script> <!-- Script principal de la página -->
+
+    <title>Cuenta</title> <!-- Título de la pestaña del navegador -->
+</head>
+
+<body>
+
+    <div class="grid"> <!-- Contenedor principal en formato de grid -->
+
+        <header class="header"> <!-- Encabezado de la página -->
+
+            <div class="texto-header"> <!-- Contenedor del texto del encabezado -->
+                <p class="subtitulo">Cuenta</p> <!-- Subtítulo visible en el encabezado -->
+            </div>
+
+        </header>
+
+        <nav class="nav"> <!-- Menú de navegación lateral -->
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html" class="inicio">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a> <!-- Botón para cerrar sesión -->
+        </nav>
+
+        <main class="main"> <!-- Contenido principal de la página -->
+
+            <div class="info"> <!-- Contenedor de la información -->
+
+                <h3 class="b">Información de la cuenta</h3> <!-- Título de la sección -->
+
+                <div class="datos"> <!-- Contenedor de los datos de cuenta -->
+
+                    <div class="correo"> <!-- Sección para editar correo -->
+                        <strong>Correo:</strong><br /> <br />
+                        <span id="correoActual"></span> <!-- Correo actual mostrado -->
+                        <input id="correoInput" type="email" style="display: none;"> <br /> <!-- Campo para nuevo correo -->
+                        <input id="contrasenaActualCorreoInput" type="password" placeholder="Contraseña actual"
+                            style="display: none;"> <!-- Campo para ingresar la contraseña actual -->
+                        <br /><button id="btnEditarCorreo" class="btn">Editar</button> <!-- Botón para activar edición -->
+                        <button id="btnGuardarCorreo" class="btn" style="display: none;">Guardar</button> <!-- Guardar cambios -->
+                        <button id="btnCancelarCorreo" class="btn" style="display: none;">Cancelar</button> <!-- Cancelar edición -->
+                    </div>
+
+                    <div class="contra"> <!-- Sección para editar contraseña -->
+                        <strong>Contraseña:</strong><br /> <br />
+                        <span id="contraActual"></span> <!-- Contraseña actual mostrada como texto (generalmente oculta) -->
+                        <input id="nuevaContraInput" type="password" placeholder="Nueva contraseña"
+                            style="display: none;"> <!-- Campo nueva contraseña -->
+                        <input id="confirmarContraInput" type="password" placeholder="Confirmar nueva contraseña"
+                            style="display: none;"> <!-- Confirmación de nueva contraseña -->
+                        <input id="contrasenaActualInput" type="password" placeholder="Contraseña actual"
+                            style="display: none;"> <!-- Contraseña actual para confirmar cambio -->
+                        <br /><button id="btnEditarContra" class="btn">Editar</button> <!-- Botón para activar edición -->
+                        <button id="btnGuardarContra" class="btn" style="display: none;">Guardar</button> <!-- Guardar cambios -->
+                        <button id="btnCancelarContra" class="btn" style="display: none;">Cancelar</button> <!-- Cancelar edición -->
+                    </div>
+
+                </div>
+
+                <div class="registro"> <!-- Sección para recuperación de contraseña -->
+                    <p>¿Olvídaste tu contraseña? Recupérala <a href="recuperarContra.html" class="reg">aquí</a></p>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Prevenir comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Confirmación
+            if (confirmar) {
+                // Limpiar localStorage 
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirigir a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

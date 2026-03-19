@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/recuperarContra.css" />
+
+    <title>Recuperación contraseña</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <!-- Logo que enlaza a la página principal -->
+                <a href="index.html">
+                    <img src="logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <!-- Subtítulo del sitio -->
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <!-- Menú de navegación principal -->
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="seg">
+            <div class="contenido">
+
+                <!-- Título principal de la sección -->
+                <h2 class="titulo">¿Olvidaste tu contraseña?</h2>
+
+                <!-- Formulario para ingresar correo y solicitar recuperación -->
+                <form id="formRecuperar" class="formulario">
+                    <!-- Instrucciones para el usuario -->
+                    <p class="correo">Introduce el correo electrónico de la cuenta que tienes regístrada y enviaremos un
+                        enlace para recuperar tu contraseña</p>
+                    <!-- Campo para ingresar correo -->
+                    <br /><input type="email" id="correo" required />
+                    <!-- Botón para enviar el formulario -->
+                    <br /><button type="submit" class="btn">Enviar enlace</button>
+                </form>
+
+                <!-- Contenedor donde se mostrará el mensaje de éxito o error -->
+                <p id="mensaje" class="msj"></p>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Selecciona el formulario por su id
+        const form = document.getElementById('formRecuperar');
+
+        // Escucha el evento submit para enviar la solicitud de recuperación sin recargar la página
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita el envío tradicional del formulario
+
+            // Obtiene el valor del correo ingresado y elimina espacios al inicio y final
+            const correo = document.getElementById('correo').value.trim();
+
+            // Envía la petición POST a la API para solicitar el enlace de recuperación
+            const res = await fetch('http://localhost:3000/api/cuenta/solicitar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ correo }), // Envia el correo en formato JSON
+            });
+
+            // Espera la respuesta en formato JSON
+            const data = await res.json();
+
+            // Muestra el mensaje recibido desde la API en el contenedor de mensajes
+            document.getElementById('mensaje').textContent = data.mensaje || data.error;
+        });
+    </script>
+</body>
+</html>

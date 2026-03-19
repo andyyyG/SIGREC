@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+
+    <!-- Icono de la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Archivo de estilos específico para el inicio del vendedor -->
+    <link rel="stylesheet" href="./src/css/inicioVendedor.css" />
+
+    <!-- Script JS para controlar comportamiento del inicio del vendedor -->
+    <script src="./src/js/inicioVendedor.js" type="module" defer></script>
+
+    <!-- Título que se muestra en la pestaña del navegador -->
+    <title>Inicio Vendedor</title>
+</head>
+
+<body>
+
+    <!-- Contenedor principal con layout en grid -->
+    <div class="grid">
+
+        <!-- Encabezado principal de la vista -->
+        <header class="header">
+            <div class="texto-header">
+                <p class="subtitulo">Inicio</p> <!-- Texto que indica en qué sección está -->
+            </div>
+        </header>
+
+        <!-- Barra de navegación lateral para el vendedor -->
+        <nav class="nav">
+            <a href="inicioVendedor.html" class="inicio">✎ Inicio</a><br />
+            <a href="infoV.html">✎ Información</a>
+            <a href="solicitudesGeneralesV.html">✎ Solicitudes</a>
+            <!-- Botón para cerrar sesión -->
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Contenido principal de la página -->
+        <main class="main">
+            <div class="info">
+
+                <!-- Aquí se mostrará un mensaje personalizado de bienvenida (JS lo inserta) -->
+                <h2 id="bienvenida"></h2>
+
+                <!-- Contenedor para mostrar los avisos recientes del sistema -->
+                <div class="aviso2">
+                    <h3>Avisos publicados recientemente</h3>
+
+                    <!-- Aquí se cargarán dinámicamente los avisos desde JS -->
+                    <div id="avisosPublicados"></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Script para manejar el cierre de sesión -->
+    <script>
+        // Escucha el clic en el botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento predeterminado del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Confirma con el usuario
+
+            if (confirmar) {
+                // Elimina los datos del localStorage para cerrar la sesión
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige a la página principal del sitio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

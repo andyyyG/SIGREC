@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Se enlaza el archivo de estilos CSS correspondiente a esta vista -->
+    <link rel="stylesheet" href="./src/css/infoPersonalV.css" />
+
+    <!-- Se enlaza el script JS que controla el comportamiento de la página -->
+    <script src="./src/js/infoPersonalV.js" defer></script>
+
+    <!-- Se define el título de la pestaña del navegador -->
+    <title>Información personal</title>
+</head>
+
+<body>
+
+    <div class="grid">
+
+        <!-- Sección de encabezado -->
+        <header class="header">
+            <div class="texto-header">
+                <!-- Se agrega un enlace que redirige a la vista de información -->
+                <a href="infoV.html">
+                    <p class="subtitulo">Información</p>
+                </a>
+            </div>
+        </header>
+
+        <!-- Menú de navegación lateral -->
+        <nav class="nav">
+            <a href="inicioVendedor.html">✎ Inicio</a><br />
+            <a href="infoV.html" class="inicio">✎ Información</a>
+            <a href="solicitudesGeneralesV.html">✎ Solicitudes</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main">
+
+            <!-- Navegación secundaria dentro de la sección de información -->
+            <div class="navI">
+                <a href="infoPersonalV.html">Información personal</a>
+                <a href="infoComercialV.html">Información comercial</a>
+                <a href="cuentaV.html">Información de la cuenta</a><br />
+            </div>
+
+            <!-- Contenedor principal de los datos personales -->
+            <div class="info">
+                <h2 class="encabezado">Información Personal</h2>
+
+                <!-- Sección de datos personales a mostrar/editar -->
+                <div class="datos">
+                    <div class="nombre">
+                        <strong>Nombre:</strong>
+                        <div id="nombreText"></div>
+                        <input type="text" id="nombre" style="display:none;" />
+                    </div>
+
+                    <div class="apellidoP">
+                        <strong>Apellido paterno:</strong>
+                        <div id="apellidoPText"></div>
+                        <input type="text" id="apellidoP" style="display:none;" />
+                    </div>
+
+                    <div class="apellidoM">
+                        <strong>Apellido materno:</strong>
+                        <div id="apellidoMText"></div>
+                        <input type="text" id="apellidoM" style="display:none;" />
+                    </div>
+
+                    <div class="genero">
+                        <strong>Género:</strong>
+                        <div id="generoText"></div>
+                        <select id="genero" style="display:none;">
+                            <option value="Mujer">Mujer</option>
+                            <option value="Hombre">Hombre</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="fecha">
+                        <strong>Fecha de nacimiento:</strong>
+                        <div id="fechaNacimientoText"></div>
+                        <input type="date" id="fechaNacimiento" style="display:none;" />
+                    </div>
+
+                    <div class="tel">
+                        <strong>Teléfono:</strong>
+                        <div id="numCelText"></div>
+                        <input type="tel" id="numCel" style="display:none;" />
+                    </div>
+                </div>
+
+                <!-- Botones para editar y guardar la información -->
+                <div class="boton">
+                    <button type="button" id="btnEditar">Editar Información</button>
+                    <button type="button" id="btnGuardar" style="display: none;">Guardar Cambios</button>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script para gestionar el cierre de sesión -->
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Se evita el comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Se eliminan los datos del usuario del localStorage
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Se redirige al usuario a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

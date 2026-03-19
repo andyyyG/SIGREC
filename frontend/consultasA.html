@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Sección de metadatos y enlaces del documento -->
+    <meta charset="UTF-8">
+    <!-- Define la codificación de caracteres como UTF-8 -->
+
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <!-- Configuración para que la página sea responsive  -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <!-- Ícono que se muestra en la pestaña del navegador -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/consultasA.css" />
+    <!-- Enlace al archivo de estilos CSS para esta sección -->
+
+    <title>Consultas</title>
+    <!-- Título de la pestaña en el navegador -->
+</head>
+
+<body>
+    <!-- Cuerpo principal del documento -->
+
+    <div class="grid">
+        <!-- Contenedor principal con diseño basado en grid -->
+
+        <header class="header">
+            <!-- Encabezado superior de la página -->
+
+            <div class="texto-header">
+                <!-- Contenedor del subtítulo -->
+                <p class="subtitulo">Consultas</p>
+                <!-- Título visible de la sección actual -->
+            </div>
+
+        </header>
+
+        <nav class="nav">
+            <!-- Menú de navegación lateral -->
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultas.html" class="inicio">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Enlace con ID para cerrar sesión desde JavaScript -->
+        </nav>
+
+        <main class="main">
+            <!-- Sección principal del contenido -->
+
+            <div class="navI">
+                <!-- Submenú interno de navegación -->
+                <a href="consultaVendedores.html">Vendedores</a>
+                <a href="consultaProductos.html">Productos</a>
+                <a href="estadisticas.html">Estadísticas</a>
+                <!-- Enlaces a cada subsección de las consultas -->
+            </div>
+
+            <div class="info">
+                <!-- Contenedor con información de bienvenida -->
+                <h3 class="b">Bienvenido a la sección de consultas</h3>
+                <!-- Título de bienvenida -->
+
+                <p class="i">
+                    Aquí podrás revisar los vendedores, sus permisos y productos y administrarlos
+                </p>
+                <!-- Descripción de lo que se puede hacer en esta sección -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Script para el cierre de sesión -->
+    <script>
+        // Escucha el evento de clic en el botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            // Muestra una ventana de confirmación al usuario
+
+            if (confirmar) {
+                // Si el usuario acepta, se eliminan datos de sesión del localStorage
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige al usuario a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

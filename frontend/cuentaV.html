@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Se definen metadatos del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    
+    <!-- Se agrega ícono de pestaña -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <!-- Se importan fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Se enlaza hoja de estilos propia -->
+    <link rel="stylesheet" href="./src/css/cuentaV.css" />
+
+    <!-- Se enlaza el script de JS para esta vista -->
+    <script src="./src/js/cuentaV.js" defer></script>
+
+    <!-- Título de la pestaña -->
+    <title>Información de la cuenta</title>
+
+</head>
+
+<body>
+
+    <!-- Contenedor general con grid -->
+    <div class="grid">
+
+        <!-- Sección del encabezado -->
+        <header class="header">
+            <div class="texto-header">
+                <p class="subtitulo">Información</p>
+            </div>
+        </header>
+
+        <!-- Menú de navegación principal -->
+        <nav class="nav">
+            <a href="inicioVendedor.html" >✎ Inicio</a><br />
+            <a href="infoV.html" class="inicio">✎ Información</a>
+            <a href="solicitudesGeneralesV.html">✎ Solicitudes</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Sección principal del contenido -->
+        <main class="main">
+
+            <!-- Navegación secundaria interna de secciones -->
+            <div class="navI">
+                <a href="infoPersonalV.html">Información personal</a>
+                <a href="infoComercialV.html">Información comercial</a>
+                <a href="cuentaV.html">Información de la cuenta</a><br />
+            </div>
+
+            <!-- Contenedor de configuración de cuenta -->
+            <div class="info">
+                <h2 class="encabezado">Configuración</h2>
+
+                <div class="datos">
+                    <!-- Sección de edición de correo -->
+                    <div class="correo">
+                        <strong>Correo:</strong><br /> <br />
+                        <span id="correoActual"></span>
+                        <input id="correoInput" type="email" style="display: none;"> <br />
+                        <input id="contrasenaActualCorreoInput" type="password" placeholder="Contraseña actual"
+                            style="display: none;">
+                        <br /><button id="btnEditarCorreo" class="btn">Editar</button>
+                        <button id="btnGuardarCorreo" class="btn" style="display: none;">Guardar</button>
+                        <button id="btnCancelarCorreo" class="btn" style="display: none;">Cancelar</button>
+                    </div>
+
+                    <!-- Sección de edición de contraseña -->
+                    <div class="contra">
+                        <strong>Contraseña:</strong><br /> <br />
+                        <span id="contraActual"></span>
+                        <input id="nuevaContraInput" type="password" placeholder="Nueva contraseña"
+                            style="display: none;">
+                        <input id="confirmarContraInput" type="password" placeholder="Confirmar nueva contraseña"
+                            style="display: none;">
+                        <input id="contrasenaActualInput" type="password" placeholder="Contraseña actual"
+                            style="display: none;">
+                        <br /><button id="btnEditarContra" class="btn">Editar</button>
+                        <button id="btnGuardarContra" class="btn" style="display: none;">Guardar</button>
+                        <button id="btnCancelarContra" class="btn" style="display: none;">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Enlace para recuperar contraseña -->
+                <div class="registro">
+                    <p>¿Olvídaste tu contraseña? Recupérala <a href="recuperarContra.html" class="reg">aquí</a></p>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script para manejar el cierre de sesión -->
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita la navegación automática
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Se eliminan datos de sesión almacenados
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige al inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

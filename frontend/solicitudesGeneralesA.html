@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <!-- Ícono que aparece en la pestaña del navegador -->
+
+    <!-- Carga anticipada para mejorar rendimiento al cargar fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/solicitudesGeneralesA.css" />
+    <!-- Enlace al archivo de estilos CSS específico para esta página -->
+
+    <title>Solicitudes</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+</head>
+
+<body>
+    <!-- Cuerpo principal del sitio -->
+
+    <div class="grid">
+        <!-- Contenedor general estructurado como grid -->
+
+        <header class="header">
+            <!-- Encabezado del sitio -->
+
+            <div class="texto-header">
+                <!-- Contenedor del subtítulo en el encabezado -->
+                <p class="subtitulo">Solicitudes</p>
+                <!-- Texto que indica la sección actual -->
+            </div>
+
+        </header>
+
+        <nav class="nav">
+            <!-- Menú de navegación lateral -->
+            <a href="inicioAdmin.html">✎ Inicio</a>
+            <a href="solicitudesGeneralesA.html" class="inicio">✎ Solicitudes</a>
+            <a href="consultasA.html">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Botón para cerrar sesión con ID para asociarlo a JavaScript -->
+        </nav>
+
+        <main class="main">
+            <!-- Contenido principal de la sección -->
+
+            <div class="navI">
+                <!-- Submenú interno de navegación para tipos de solicitudes -->
+                <a href="soliNuevosV.html">Nuevos vendedores</a>
+                <a href="soliRenovacionV.html">Renovación de permiso</a>
+                <a href="soliProductosV.html">Productos</a>
+                <a href="busquedaSoli.html">🔍 Buscar</a>
+                <!-- Enlaces a cada subcategoría de solicitudes -->
+            </div>
+
+            <div class="info">
+                <!-- Contenedor informativo de bienvenida -->
+                <h3 class="b">Bienvenido a la sección de solicitudes</h3>
+                <!-- Título de bienvenida -->
+
+                <p class="i">
+                    Aquí podrás revisar las distintas solicitudes hechas por los vendedores y administrarlas
+                </p>
+                <!-- Explicación sobre el propósito de esta sección -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Lógica para el botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento predeterminado del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            // Muestra un cuadro de confirmación al usuario
+
+            if (confirmar) {
+                // Si el usuario acepta, se eliminan los datos de sesión
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirecciona a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

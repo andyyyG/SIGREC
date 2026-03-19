@@ -1,0 +1,211 @@
+/* ==== RESETEO GLOBAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Incluye padding y border dentro del ancho total */
+}
+
+/* ==== FONDO DEL CUERPO ==== */
+body {
+  background-image: url(/nP.png);
+  /* Imagen de fondo personalizada */
+  background-size: cover;
+  /* Ajusta el tamaño al 100% del área visible */
+  background-attachment: fixed;
+  /* Fija el fondo al hacer scroll */
+}
+
+/* ==== ESTILOS DEL ENCABEZADO ==== */
+header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  /* Espacio entre logo y menú */
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Grupo que contiene logo + subtítulo */
+.grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenedor de logo + texto */
+.logo-y-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-y-subtitulo img {
+  margin-left: 95px;
+  height: 55px;
+  width: auto;
+}
+
+/* Texto grande junto al logo */
+.subtitulo {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(7, 21, 59);
+  font-family: "Raleway", sans-serif;
+}
+
+/* ==== MENÚ DE NAVEGACIÓN ==== */
+.menu {
+  display: flex;
+  gap: 35px;
+  background-color: rgb(146, 64, 9);
+  /* Color café oscuro */
+  width: 50%;
+  border-radius: 100px;
+  padding: 12px 0 12px 25px;
+  margin-right: 95px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.menu a {
+  color: white;
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 100px;
+}
+
+.menu a:hover {
+  background-color: rgb(214, 182, 124);
+  color: black;
+}
+
+/* ==== CONTENIDO PRINCIPAL ==== */
+main {
+  .contenido {
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    background: linear-gradient(to left, #ffd452, #e4953a);
+    /* Fondo degradado */
+    width: 80%;
+    margin: 35px auto 20px auto;
+    padding: 20px;
+    border-radius: 110px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Formulario */
+  .form {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .form input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #5a2b2b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .form input[type="submit"]:hover {
+    background-color: #3e1e1e;
+  }
+
+  .form input[type="text"] {
+    width: 30%;
+    padding: 8px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 14px;
+  }
+
+  .select {
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+}
+
+/* ==== TÍTULO O MENSAJE PRINCIPAL ==== */
+.b {
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 25px;
+  color: #000;
+  width: 95%;
+  border-radius: 80px;
+  margin-left: 30px;
+  padding: 20px;
+}
+
+/* ==== INPUT DE BÚSQUEDA ==== */
+#inputBusqueda {
+  width: 40%;
+  border-radius: 30px;
+  border-style: none;
+  padding: 15px;
+  font-size: 15px;
+  margin-left: 90px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  }
+}
+
+/* ==== MENÚ DESPLEGABLE (SELECT) ==== */
+select {
+  width: 15%;
+  border-radius: 30px;
+  border-style: none;
+  padding: 15px;
+  margin-left: 5px;
+  font-size: 15px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  }
+}
+
+/* ==== BOTÓN DE BÚSQUEDA ==== */
+button {
+  width: 10%;
+  border-radius: 30px;
+  border-style: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-left: 5px;
+  background-color: rgba(99, 191, 245, 0.795);
+  border-color: rgba(0, 0, 255, 0.418);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(99, 157, 245, 0.795);
+  }
+}
+
+/* ==== TARJETA DE RESULTADO DE PRODUCTO ==== */
+.card-producto {
+  margin-top: 30px;
+  border-radius: 30px;
+  width: 50%;
+  margin-left: 255px;
+  background-color: rgba(252, 200, 96, 0.76);
+  /* Fondo suave */
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease;
+  font-size: 17px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.9);
+  }
+}

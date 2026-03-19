@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/inicioAdmin.css" />
+    <!-- Enlace al archivo CSS personalizado para estilos -->
+
+    <script src="./src/js/inicioAdmin.js" type="module" defer></script>
+    <!-- Script externo que se carga en modo módulo y de forma diferida -->
+
+    <title>Inicio administrador</title>
+    <!-- Título de la pestaña -->
+</head>
+
+<body>
+    <!-- Cuerpo principal del sitio -->
+
+    <div class="grid">
+        <!-- Contenedor general con diseño tipo grid -->
+
+        <header class="header">
+            <!-- Encabezado del sitio -->
+
+            <div class="texto-header">
+                <!-- Contenedor del texto en el encabezado -->
+                <p class="subtitulo">Inicio</p>
+                <!-- Subtítulo principal -->
+            </div>
+
+        </header>
+
+        <nav class="nav">
+            <!-- Menú de navegación lateral -->
+            <a href="inicioAdmin.html" class="inicio">✎ Inicio</a>
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Opción para cerrar sesión con ID para JavaScript -->
+        </nav>
+
+        <main class="main">
+            <!-- Contenido principal del sitio -->
+            <div class="info">
+                <!-- Sección informativa del administrador -->
+                <h2 id="bienvenida"></h2>
+                <!-- Título donde se mostrará un mensaje de bienvenida dinámico -->
+
+                <div class="aviso">
+                    <!-- Sección para publicar un nuevo aviso -->
+                    <p>¿Quieres hacer algún aviso?</p>
+                    <button id="btnMostrarFormulario">Publicar aviso</button>
+                    <!-- Botón para mostrar el formulario -->
+
+                    <div id="formularioAviso" style="display: none; margin-top: 20px;">
+                        <!-- Formulario oculto inicialmente para publicar un aviso -->
+                        <input type="text" id="tituloAviso" placeholder="Título del aviso"
+                            style="display: block; margin-bottom: 10px; width: 100%;" />
+                        <!-- Campo para el título del aviso -->
+
+                        <textarea id="contenidoAviso" placeholder="Contenido del aviso" rows="5"
+                            style="display: block; margin-bottom: 10px; width: 100%;"></textarea>
+                        <!-- Área para el contenido del aviso -->
+
+                        <button id="btnPublicarAviso">Publicar aviso</button>
+                        <!-- Botón para enviar el aviso -->
+                    </div>
+
+                </div>
+
+                <div class="aviso2">
+                    <!-- Sección donde se mostrarán los avisos publicados -->
+                    <h3>Avisos publicados recientemente</h3>
+                    <div id="avisosPublicados"></div>
+                    <!-- Contenedor dinámico para los avisos -->
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Script en línea para manejar el cierre de sesión -->
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita la acción predeterminada del enlace (navegar)
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            // Muestra un cuadro de confirmación al usuario
+
+            if (confirmar) {
+                // Si el usuario confirma:
+                // Limpia el almacenamiento local eliminando los IDs del usuario
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige a la página principal
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

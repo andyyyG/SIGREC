@@ -1,0 +1,194 @@
+/* Reinicia márgenes y relleno para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo del fondo de la página */
+body {
+  /* Imagen de fondo */
+  background-image: url(/nP.png);
+  background-size: cover;
+  /* Asegura que la imagen cubra toda la pantalla */
+}
+
+/* Contenedor del encabezado */
+header {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Grupo que contiene logo y subtítulo */
+.grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenedor del logo y el subtítulo */
+.logo-y-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilo del logo */
+.logo-y-subtitulo img {
+  margin-left: 95px;
+  height: 55px;
+  width: auto;
+}
+
+/* Estilo del subtítulo "SIGREC" */
+.subtitulo {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(7, 21, 59);
+  font-family: "Raleway", sans-serif;
+}
+
+/* Barra de navegación */
+.menu {
+  display: flex;
+  gap: 35px;
+  background-color: rgb(146, 64, 9);
+  width: 50%;
+  border-radius: 100px;
+  padding: 12px;
+  margin-right: 95px;
+  padding-left: 25px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 100px;
+}
+
+/* Efecto hover sobre enlaces del menú */
+.menu a:hover {
+  background-color: rgb(214, 182, 124);
+  color: black;
+}
+
+/* Contenido principal de la página */
+main {
+  display: flex;
+  justify-content: space-between;
+
+  /* Caja del formulario */
+  .contenido {
+    background: linear-gradient(to left, #ffd452, #e4953a);
+    width: 96%;
+    min-height: 520px;
+    margin-top: 20px;
+    margin-left: 340px;
+    padding: 20px;
+    border-radius: 110px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Campos de entrada: email y contraseña */
+  .formulario input[type="email"],
+  .formulario input[type="password"] {
+    width: 50%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  /* Efecto al enfocar inputs */
+  .formulario input[type="email"]:focus,
+  .formulario input[type="password"]:focus {
+    border-color: #3e1e1e;
+    outline: none;
+  }
+
+  /* Botón de envío */
+  .formulario input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgb(146, 64, 9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover del botón */
+  .formulario input[type="submit"]:hover {
+    background-color: #6d390c;
+  }
+
+  /* Texto y enlace de recuperación de contraseña */
+  .registro {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 450;
+    text-align: center;
+
+    .reg {
+      color: black;
+    }
+
+    .reg:hover {
+      color: #6d390c;
+    }
+  }
+}
+
+/* Caja superior con mensaje de registro */
+.registro-caja {
+  font-family: "Raleway", sans-serif;
+  background-color: rgb(224, 183, 107);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Texto dentro de la caja de registro */
+.registroo {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  line-height: 30px;
+}
+
+/* Estilo del enlace hacia el registro */
+.direc {
+  color: black;
+
+  &:hover {
+    color: brown;
+    text-decoration: underline;
+  }
+}
+
+/* Imagen decorativa en el formulario */
+.imgPP {
+  width: 150px;
+  margin-bottom: 40px;
+}
+
+/* Estilo general del formulario */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}

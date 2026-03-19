@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icono de la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="./src/css/Vendedor.css" />
+
+    <!-- Script del formulario de login del vendedor -->
+    <script src="./src/js/loginV.js" type="module" defer></script>
+
+    <!-- Título del documento -->
+    <title>Vendedor</title>
+</head>
+
+<body>
+
+    <!-- Aviso para registrar cuenta si no se tiene -->
+    <div class="registro-caja">
+        <p class="registroo">
+            ¿Aún no tienes cuenta? ¡<a href="registrarCuentaV.html" class="direc">Regístrate</a> y empieza a gestionar
+            tus productos de forma fácil y confiable!
+        </p>
+    </div>
+
+    <!-- Encabezado con logo y menú de navegación -->
+    <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <a href="index.html">
+                    <img src="logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <!-- Menú de navegación -->
+        <nav class="menu">
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="seg">
+            <div class="contenido">
+
+                <!-- Formulario de inicio de sesión para vendedores -->
+                <form class="formulario">
+                    <!-- Imagen del perfil o icono -->
+                    <img src="/pp2.png" class="imgPP">
+
+                    <!-- Campo de correo electrónico -->
+                    <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electrónico" required />
+                    <br /><br />
+
+                    <!-- Campo de contraseña -->
+                    <input type="password" name="contra" id="contra" placeholder="Ingrese su contraseña" required />
+                    <br /><br />
+
+                    <!-- Botón de envío del formulario -->
+                    <input type="submit" value="Iniciar sesión" />
+
+                    <!-- Enlace para recuperar contraseña -->
+                    <div class="registro">
+                        <p>¿Olvídaste tu contraseña?</p>
+                        <a href="recuperarContra.html" class="reg">Recupérala aquí</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Script para manejar el inicio de sesión -->
+    <script>
+        // Al enviar el formulario
+        document.querySelector('.formulario').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita recargar la página
+
+            // Obtiene los valores de los campos
+            const correo = document.getElementById('correo').value;
+            const contra = document.getElementById('contra').value;
+
+            try {
+                // Hace la petición al backend
+                const res = await fetch('http://localhost:3000/api/loginV', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ correo, contra }),
+                });
+
+                // Si hay error en la respuesta
+                if (!res.ok) {
+                    const data = await res.json();
+                    alert(data.mensaje || 'Error en el servidor');
+                    return;
+                }
+
+                // Si todo salió bien, se obtiene la respuesta
+                const data = await res.json();
+
+                // Guarda los datos del usuario en localStorage
+                localStorage.setItem('usuarioId', data.usuarioId);
+                if (data.vendedorId) {
+                    localStorage.setItem('vendedorId', data.vendedorId);
+                    localStorage.setItem('permisoEstado', data.permisoEstado);
+                }
+                localStorage.setItem('correo', data.correo);
+                localStorage.setItem('nombre', data.nombre);
+                localStorage.setItem('genero', data.genero);
+
+                // Redirige al panel del vendedor
+                window.location.href = 'inicioVendedor.html';
+
+            } catch (error) {
+                console.error('Error en la conexión:', error);
+                alert('No se pudo conectar con el servidor');
+            }
+        });
+    </script>
+
+</body> 
+
+</html>

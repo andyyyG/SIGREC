@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/soliNuevosV.css" />
+    <script src="./src/js/soliProductosV.js" defer></script>
+    <title>Solicitudes de productos</title>
+
+</head>
+
+<body>
+
+    <div class="grid">
+
+        <!-- Encabezado principal con título -->
+        <header class="header">
+            <div class="texto-header">
+                <p class="subtitulo">Solicitudes</p>
+            </div>
+        </header>
+
+        <!-- Navegación lateral para el administrador -->
+        <nav class="nav">
+            <a href="inicioAdmin.html">✎ Inicio</a>
+            <a href="solicitudesGeneralesA.html" class="inicio">✎ Solicitudes</a>
+            <a href="consultasA.html">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main">
+
+            <!-- Navegación interna para diferentes tipos de solicitudes -->
+            <div class="navI">
+                <a href="soliNuevosV.html">Nuevos vendedores</a>
+                <a href="soliRenovacionV.html">Renovación de permiso</a>
+                <a href="soliProductosV.html">Productos</a>
+                <a href="busquedaSoli.html">🔍 Buscar</a>
+            </div>
+
+            <!-- Contenedor para mostrar las solicitudes de productos -->
+            <div class="info">
+                <h2 class="encabezado">Solicitudes de productos</h2>
+                <div class="datos" id="contenedorSolicitudes">
+                    <!-- Aquí se mostrarán las solicitudes -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Evento para cerrar sesión con confirmación
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita que el enlace navegue automáticamente
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Limpia los datos almacenados en localStorage
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige a la página principal
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

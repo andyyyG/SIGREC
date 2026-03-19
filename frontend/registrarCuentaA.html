@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/registrarCuentaV.css" />
+    <script src="./src/js/registrarCuentaA.js" type="module" defer></script>
+
+    <title>Regístrate</title>
+</head>
+
+<body>
+
+   <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <!-- Enlace a la página principal con logo -->
+                <a href="index.html">
+                    <img src="/logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <!-- Subtítulo del sitio -->
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <!-- Navegación principal del sitio -->
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="introduccion">
+            <!-- Mensaje de bienvenida e instrucciones para el registro -->
+            <p>
+                Bienvenido al registro de administradores, completa el formulario para crear una cuenta
+            </p>
+        </div>
+
+        <div class="contenido">
+            <!-- Formulario para registrar administradores -->
+            <form class="formulario" method="POST" enctype="multipart/form-data">
+                <div class="columnaIzquierda">
+                    <!-- Campo para ingresar nombre con validación de solo letras y espacios -->
+                    <label for="nombre">Ingrese su nombre: </label>
+                        <input type="text" name="nombre" id="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required>
+                    
+                    <!-- Campo para apellido paterno con validación -->
+                    <label for="apellidoP">Ingrese su apellido paterno: </label>
+                    <input type="text" name="apellidoP" id="apellidoP" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required>
+
+                    <!-- Campo para apellido materno con validación, opcional -->
+                    <label for="apellidoM">Ingrese su apellido materno: </label>
+                    <input type="text" name="apellidoM" id="apellidoM" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+">
+
+                    <!-- Selección de género -->
+                    <label for="genero">Seleccione su género</label>
+                    <select name="genero" id="genero" class="select">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Otro">Otro</option>
+                    </select> <br />
+
+                </div>
+
+                <div class="columnaDerecha">
+                    <!-- Campo para fecha de nacimiento -->
+                    <label for="fechaNacimiento">Ingrese su fecha de nacimiento: </label>
+                    <input type="date" name="fechaNacimiento" id="fechaNacimiento" required />
+
+                    <!-- Campo para número celular con validación de 10 dígitos -->
+                    <label for="numCel">Ingrese su número de celular</label>
+                    <input type="tel" name="numCel" id="numCel" pattern="[0-9]{10}" maxlength="10" required />
+
+                    <!-- Campo para correo electrónico -->
+                    <label for="correo">Ingrese su correo electrónico</label>
+                    <input type="email" name="correo" id="correo" placeholder="correo@electronico.com"
+                        required />
+
+                    <!-- Campo para contraseña -->
+                    <label for="contra">Ingrese una contraseña</label>
+                    <input type="password" name="contra" id="contra"
+                        placeholder="Ingrese una contraseña" required />
+
+                    <br />  
+                    <!-- Botón para enviar el formulario -->
+                    <input type="submit" value="Enviar" />
+                </div>
+                
+            </form>
+        </div>
+    </main>
+</body>
+</html>

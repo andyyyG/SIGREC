@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Define la codificación de caracteres para que se muestren correctamente caracteres especiales -->
+
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <!-- Meta para diseño responsivo; nota: contiene un error tipográfico en 'whrefth' que debería ser 'width' -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <!-- Ícono que aparece en la pestaña del navegador -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimización para precargar la conexión a Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Importación de la fuente "Raleway" desde Google Fonts para usar en el diseño -->
+
+    <link rel="stylesheet" href="./src/css/consultaProductos.css" />
+    <!-- Archivo CSS externo específico para esta página -->
+
+    <script src="./src/js/consultaProductos.js" type="module" defer></script>
+    <!-- Archivo JavaScript externo como módulo, cargado de forma diferida para mejorar rendimiento -->
+
+    <title>Consulta de productos</title>
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+</head>
+
+<body>
+
+    <div class="grid">
+        <!-- Contenedor principal con clase grid para organización del layout -->
+
+        <header class="header">
+            <!-- Encabezado de la página -->
+
+            <div class="texto-header">
+                <!-- Contenedor para texto dentro del header -->
+
+                <p class="subtitulo">Consultas</p>
+                <!-- Subtítulo de la sección -->
+            </div>
+        </header>
+
+        <nav class="nav">
+            <!-- Barra de navegación lateral -->
+
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html" class="inicio">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Enlaces para navegar entre las secciones del área de administrador, y botón para cerrar sesión -->
+        </nav>
+
+        <main class="main">
+            <!-- Contenedor principal del contenido -->
+
+            <div class="navI">
+                <!-- Navegación interna para consultar distintos módulos -->
+
+                <a href="consultaVendedores.html">Vendedores</a>
+                <a href="consultaProductos.html">Productos</a>
+                <a href="estadisticas.html">Estadísticas</a>
+                <!-- Enlaces para consultas específicas -->
+            </div>
+
+            <div class="info">
+                <!-- Contenedor para la sección de búsqueda e información -->
+
+                <h3 class="b">Haz una búsqueda de productos por nombre del producto, su categoría o estado</h3>
+                <!-- Instrucción para el usuario -->
+
+                <div class="busqueda-container">
+                    <!-- Contenedor para los elementos de búsqueda -->
+
+                    <input type="text" id="inputBusqueda" placeholder="Buscar por nombre del producto..." />
+                    <!-- Campo de texto para buscar productos por nombre -->
+
+                    <select id="selectCategoría">
+                        <option value="">Categoría</option>
+                        <option value="comida">Comida</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="dulces">Dulces</option>
+                        <option value="postres">Postres</option>
+                        <option value="papeleria">Papelería</option>
+                        <option value="ropa">Ropa</option>
+                        <!-- Selector para filtrar por categoría -->
+                    </select>
+
+                    <select id="selectEstado">
+                        <option value="">Estado</option>
+                        <option value="Aceptado">Aceptados</option>
+                        <option value="Rechazado">Rechazados</option>
+                        <option value="En revisión">En revisión</option>
+                        <!-- Selector para filtrar por estado del producto -->
+                    </select>
+
+                    <button id="btnBuscar">🔍 Buscar</button>
+                    <!-- Botón para iniciar la búsqueda con los filtros seleccionados -->
+                </div>
+
+                <div id="resultados"></div>
+                <!-- Contenedor donde se mostrarán los resultados de la búsqueda -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Añade un evento al botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); 
+            // Evita el comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Si el usuario confirma, limpia los datos guardados en localStorage
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Luego redirige a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

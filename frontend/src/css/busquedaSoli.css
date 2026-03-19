@@ -1,0 +1,332 @@
+/* Reset general para márgenes y cajas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo de la página */
+body {
+    background: linear-gradient(to left, #ffd452, #e4953a); /* Degradado de fondo */
+    font-family: "Raleway", sans-serif; /* Fuente principal */
+    display: flex;
+    justify-content: center; /* Centrado horizontal del contenido */
+}
+
+/* Contenedor principal tipo grid */
+.grid {
+    border-radius: 10px;
+    width: 95%;
+    max-width: 1500px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/* Distribución de las áreas del grid */
+.grid {
+    grid-template-areas:
+        'header header header header'
+        'nav main main main'
+        'nav main main main'
+        'nav main main main';
+}
+
+/* Encabezado */
+.header {
+    grid-area: header;
+    background-color: #ffde8ad3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 35px;
+    border-radius: 90px 90px 0px 90px;
+
+    .subtitulo {
+        font-size: 55px;
+        color: rgb(146, 64, 9);
+        margin-right: 24px;
+        font-weight: 700;
+    }
+}
+
+/* Enlaces dentro del header */
+.header a {
+    text-decoration: none;
+}
+
+/* Menú lateral de navegación */
+.nav {
+    grid-area: nav;
+    background-color: rgb(146, 64, 9);
+    padding: 35px;
+    text-align: left;
+    font-size: 25px;
+    border-radius: 30px;
+    min-height: 535px;
+    max-height: 535px;
+
+    .inicio {
+        background-color: #e4953a;
+        width: 120%;
+        border-radius: 0px 100px 100px 0px;
+        margin-left: -35px;
+    }
+}
+
+/* Estilos de los enlaces del menú lateral */
+.nav a {
+    font-size: 22px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    margin-top: 27px;
+
+    &:hover {
+        background-color: #e4953a;
+        width: 120%;
+        border-radius: 0px 100px 100px 0px;
+        margin-left: -35px;
+    }
+}
+
+/* Área principal */
+.main {
+    grid-area: main;
+}
+
+/* Submenú horizontal superior */
+.navI {
+    background-color: rgb(146, 64, 9);
+    width: 90%;
+    margin-left: 95px;
+    margin-top: -9px;
+    padding: 23px;
+    border-radius: 30px 0px 0px 30px;
+}
+
+/* Enlaces del submenú */
+.navI a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 50px;
+    padding: 5px;
+
+    &:hover {
+        background-color: #e4953a;
+        border-radius: 10px;
+    }
+}
+
+/* Contenedor de la información */
+.info {
+    background-color: #ffde8ad3;
+    border-radius: 90px;
+    padding: 120px;
+    border-radius: 30px 0px 30px 30px;
+    min-height: 465px;
+    max-height: 465px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .b {
+        margin: 20px;
+        margin-top: -75px;
+        margin-left: -40px;
+        margin-bottom: 25px;
+        font-size: 20px;
+        text-align: center;
+        color: rgb(39, 38, 37);
+        width: 110%;
+        padding: 20px;
+        background-color: rgba(197, 152, 62, 0.315);
+        border-radius: 10px;
+    }
+}
+
+/* Título o encabezado extra */
+.encabezado {
+    font-size: 35px;
+    margin-top: -70px;
+    margin-bottom: 15px;
+}
+
+/* Input de búsqueda principal */
+#inputBusqueda {
+    width: 50%;
+    padding: 10px;
+    font-family: 'Segoe UI';
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: none;
+    margin-left: 10px;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    }
+}
+
+/* Estilos para los selectores de tipo y estado */
+select {
+    width: 22%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: 'Segoe UI';
+    margin-left: 5px;
+    border-style: none;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    }
+}
+
+/* Botón de búsqueda */
+#btnBuscar {
+    background-color: rgba(99, 191, 245, 0.795);
+    padding: 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    cursor: pointer;
+    margin-top: 20px;
+    border-color: rgba(0, 0, 255, 0.418);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    margin-left: 610px;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: rgba(99, 157, 245, 0.795);
+    }
+}
+
+/* Tarjeta que contiene cada solicitud */
+.solicitud-card {
+    background-color: rgba(233, 193, 112, 0.76);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.3s ease;
+    max-width: 850px;
+    font-family: 'Segoe UI';
+
+    &:hover {
+        box-shadow: 0 4px 12px rgb(0 0 0 / 0.9);
+    }
+}
+
+/* Texto dentro de cada tarjeta */
+.solicitud-card p {
+    margin: 10px 35px;
+    color: rgb(39, 39, 38);
+    font-size: 1.25rem;
+}
+
+/* Lista de productos asociados a la solicitud */
+.solicitud-card ul {
+    list-style: disc inside;
+    margin: 8px 0px 12px 180px;
+    padding-left: 0;
+    color: rgba(32, 32, 31, 0.87);
+}
+
+/* Imagen de identificación dentro de la tarjeta */
+.solicitud-card img {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-left: 180px;
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: contain;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para mostrar la URL de la imagen */
+.urlId {
+    margin-left: 180px;
+}
+
+/* Botones de aceptar o rechazar */
+.acciones button {
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 14px;
+    margin-top: 20px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+/* Botón de rechazar (color rojo) */
+.acciones button.btn-rechazar {
+    margin-left: 5px;
+    background-color: #dc3545;
+
+    &:hover {
+        background-color: #a71d2a;
+    }
+}
+
+/* Área de texto para ingresar motivo de rechazo */
+.rechazo-opciones textarea {
+    width: 100%;
+    resize: vertical;
+    font-size: 1rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+/* Botón para confirmar rechazo */
+.rechazo-opciones button.btn-confirmar-rechazo {
+    background-color: #dc3545;
+
+    &:hover {
+        background-color: #a71d2a;
+    }
+}
+
+/* Márgenes para organizar texto del motivo */
+.mot {
+    margin-left: 180px;
+}
+.mot2 {
+    margin-left: 35px;
+}
+
+/* Checkbox de selección de productos */
+.seleccion-productos label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+/* Estilo específico del checkbox */
+.seleccion-productos input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-left: 40px;
+    cursor: pointer;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+
+<head>
+    <!-- Codificación de caracteres para soportar tildes y caracteres especiales -->
+    <meta charset="UTF-8">
+
+    <!-- Configuración para hacer el sitio responsive en dispositivos móviles -->
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+
+    <!-- Icono que aparece en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Enlace al archivo CSS específico para esta página -->
+    <link rel="stylesheet" href="./src/css/infoV.css" />
+
+    <!-- Título que se mostrará en la pestaña del navegador -->
+    <title>Información Vendedor</title>
+</head>
+
+<body>
+
+    <!-- Contenedor principal con diseño en grid -->
+    <div class="grid">
+
+        <!-- Encabezado de la página -->
+        <header class="header">
+            <div class="texto-header">
+                <!-- Subtítulo que indica la sección actual -->
+                <p class="subtitulo">Información</p>
+            </div>
+        </header>
+
+        <!-- Barra de navegación lateral del vendedor -->
+        <nav class="nav">
+            <!-- Enlace al inicio (sin resaltar) -->
+            <a href="inicioVendedor.html">✎ Inicio</a><br />
+            
+            <!-- Enlace activo a la sección de información -->
+            <a href="infoV.html" class="inicio">✎ Información</a>
+
+            <!-- Enlace a la sección de solicitudes -->
+            <a href="solicitudesGeneralesV.html">✎ Solicitudes</a>
+
+            <!-- Enlace para cerrar sesión -->
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <!-- Área principal de la página -->
+        <main class="main">
+
+            <!-- Navegación interna dentro de la sección de información -->
+            <div class="navI">
+                <!-- Enlaces a las subsecciones -->
+                <a href="infoPersonalV.html">Información personal</a>
+                <a href="infoComercialV.html">Información comercial</a>
+                <a href="cuentaV.html">Información de la cuenta</a><br />
+            </div>
+
+            <!-- Contenido informativo principal -->
+            <div class="info">
+                <!-- Título de bienvenida -->
+                <h3 class="b">Bienvenido a la sección de información</h3>
+
+                <!-- Descripción general de lo que se puede hacer en esta sección -->
+                <p class="i">Aquí podrás consultar y editar tu información personal, comercial, y de tu cuenta</p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script que gestiona el cierre de sesión -->
+    <script>
+        // Al hacer clic en el botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita que el enlace redireccione automáticamente
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Solicita confirmación al usuario
+
+            if (confirmar) {
+                // Elimina los datos de sesión del almacenamiento local
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirige al usuario a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

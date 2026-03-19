@@ -1,0 +1,182 @@
+/* Reset de márgenes, relleno y modelo de caja para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo del body con imagen escalada y cubierta */
+body {
+  background-image: url(/nP.png);
+  background-size: cover;
+}
+
+/* Encabezado fijo en la parte superior con alineación y fondo */
+header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Grupo que contiene logo y subtítulo */
+.grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenedor para logo y subtítulo, alineados horizontalmente */
+.logo-y-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilo para el logo */
+.logo-y-subtitulo img {
+  margin-left: 95px;
+  height: 55px;
+  width: auto;
+}
+
+/* Texto del subtítulo */
+.subtitulo {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(7, 21, 59);
+  font-family: "Raleway", sans-serif;
+}
+
+/* Barra de navegación (menú principal) */
+.menu {
+  display: flex;
+  gap: 35px;
+  background-color: rgb(146, 64, 9);
+  width: 50%;
+  border-radius: 100px;
+  padding: 12px;
+  margin-right: 95px;
+  padding-left: 25px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlaces del menú */
+.menu a {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 100px;
+}
+
+/* Efecto hover para los enlaces */
+.menu a:hover {
+  background-color: rgb(214, 182, 124);
+  color: black;
+}
+
+/* Sección introductoria centrada con estilo visual */
+.introduccion {
+  width: 65%;
+  margin: 20px auto 30px auto; 
+  padding: 40px;
+  background: linear-gradient(to left, #ffd452, #e4953a);
+  font-family: "Raleway";  
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Contenedor del formulario de registro */
+.contenido {
+  width: 70%;
+  margin: 20px auto 40px auto;
+  padding: 40px;
+  background: linear-gradient(to left, #ffd452, #e4953a);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+/* Formulario organizado en dos columnas */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-left: 50px;
+}
+
+/* Estilo de las etiquetas */
+.formulario label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 550;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Estilo general para todos los campos de entrada */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="date"],
+.formulario input[type="tel"],
+.formulario input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  font-size: 18px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  border-style: none;
+}
+
+/* Organización de checkboxes */
+.seccion-checkbox div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Separación entre checkbox y etiqueta */
+.seccion-checkbox input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Estilo de etiquetas de los checkbox */
+.seccion-checkbox label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+/* Botón de envío */
+.formulario input[type="submit"] {
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgb(146, 64, 9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 210px;
+}
+
+/* Hover del botón de envío */
+.formulario input[type="submit"]:hover {
+  background-color: #6d390c;
+}
+
+/* Estilo para campos de selección */
+.select {
+  font-size: 16px;
+  padding: 12px;
+  width: 80%;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,330 @@
+/* ===== RESET GENERAL DE ESTILOS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Hace que el padding y el borde no aumenten el ancho total del elemento */
+}
+
+/* ===== FONDO GENERAL DEL SITIO ===== */
+body {
+  background-color: #ffde8ada;
+  /* Color pastel para el fondo de toda la página */
+  overflow-x: hidden;
+  /* Evita scroll horizontal innecesario */
+}
+
+/* ===== ESTILOS DEL ENCABEZADO (HEADER) ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  /* Distribuye elementos a los extremos */
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Agrupa logo, subtítulo y menú dentro del header */
+.grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Agrupa el logo y el subtítulo */
+.logo-y-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-y-subtitulo img {
+  margin-left: 65px;
+  height: 55px;
+  width: auto;
+  /* Mantiene proporción original */
+}
+
+/* Estilo del subtítulo junto al logo */
+.subtitulo {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(7, 21, 59);
+  font-family: "Raleway", sans-serif;
+}
+
+/* Menú de navegación */
+.menu {
+  display: flex;
+  gap: 50px;
+  background-color: rgb(146, 64, 9);
+  width: 64%;
+  border-radius: 100px;
+  padding: 10px 65px;
+  margin-right: 30px;
+}
+
+/* Enlaces del menú */
+.menu a {
+  color: white;
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 450;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 100px;
+
+  &:hover {
+    background-color: rgb(214, 182, 124);
+    color: black;
+  }
+}
+
+/* ===== CONTENIDO PRINCIPAL (MAIN) ===== */
+main {
+
+  /* Contenedor general del contenido */
+  .contenido {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Columna izquierda con texto */
+  .parrafo {
+    width: 50%;
+    background-color: color(from color srgb r g b);
+    /* Color no definido correctamente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Imagen decorativa a la derecha */
+  .derecha {
+    width: 60%;
+    background-image: url(/nP.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 550px;
+  }
+
+  /* Texto destacado tipo slogan */
+  .slogan {
+    margin-top: 50px;
+    width: 100%;
+    color: rgb(146, 64, 9);
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+  }
+
+  /* Texto descriptivo */
+  .in {
+    margin-top: 30px;
+    color: rgb(59, 27, 0);
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 35px;
+    width: 80%;
+  }
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.boton {
+  margin-top: 30px;
+  background-color: rgb(146, 64, 9);
+  font-size: 18px;
+  padding: 16px;
+  border-radius: 100px;
+
+  .conoce {
+    color: white;
+    font-weight: 450;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+
+    &:hover {
+      color: rgb(185, 145, 92);
+      font-weight: 700;
+    }
+  }
+}
+
+/* ===== LINK DE REGISTRO ===== */
+.registro-caja {
+  font-family: "Raleway", sans-serif;
+  background-color: rgb(224, 183, 107);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.registroo {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  line-height: 30px;
+}
+
+.direc {
+  color: black;
+}
+
+.direc:hover {
+  color: brown;
+  text-decoration: underline;
+}
+
+/* ===== SECCIONES CON FONDO GRADIENTE REDONDEADO ===== */
+.seg,
+.seg2,
+.seg3 {
+  position: relative;
+  padding-top: 120px;
+  overflow: visible;
+}
+
+.seg {
+  margin-top: 300px;
+}
+
+.seg2 {
+  margin-top: 100px;
+}
+
+.seg3 {
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+/* Fondo decorativo redondeado detrás del contenido */
+.seg::before,
+.seg3::before {
+  content: "";
+  position: absolute;
+  top: -155px;
+  left: 20%;
+  transform: translateX(-60%);
+  width: 1200px;
+  height: 600px;
+  background: linear-gradient(to left, #ffd452de, #c01842bb);
+  border-radius: 80%;
+  z-index: 1;
+}
+
+.seg2::before {
+  content: "";
+  position: absolute;
+  top: -155px;
+  right: -400px;
+  width: 1200px;
+  height: 600px;
+  background: linear-gradient(to right, #ffd452de, #c01842bb);
+  border-radius: 80%;
+  z-index: 1;
+}
+
+/* Hace que el contenido dentro de las secciones esté por encima del fondo */
+.seg>*,
+.seg2>*,
+.seg3>* {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== BLOQUES DE CONSULTA VISUAL ===== */
+.consulta,
+.consulta2,
+.consulta3 {
+  width: 95%;
+  border-radius: 80px;
+  padding: 30px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Imágenes dentro de los bloques de consulta */
+.consulta .cons,
+.consulta3 .cons3 {
+  width: 600px;
+  margin-left: -140px;
+  margin-top: -190px;
+  padding-left: 30px;
+  border-radius: 40%;
+}
+
+.consulta2 .cons2 {
+  width: 600px;
+  margin-right: -100px;
+  margin-top: -190px;
+  padding-left: 30px;
+  border-radius: 40%;
+}
+
+/* Textos dentro de cada bloque */
+.texto-consulta,
+.texto-consulta2,
+.texto-consulta3 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Títulos dentro de los bloques */
+.bien,
+.bien2,
+.bien3 {
+  font-family: "Raleway", sans-serif;
+  color: rgb(70, 31, 6);
+  font-weight: 750;
+  font-size: 50px;
+  margin: -110px 0 10px 0;
+  text-align: left;
+}
+
+.bien2 {
+  text-align: right;
+  margin: -170px 0 10px 0;
+}
+
+/* Subtítulos o párrafos dentro de cada sección */
+.intro,
+.intro2,
+.intro3 {
+  font-family: "Raleway", sans-serif;
+  color: rgb(100, 45, 8);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.intro2 {
+  text-align: right;
+}
+
+/* ===== PIE DE PÁGINA ===== */
+.pie {
+  margin-top: 150px;
+  background-color: rgb(224, 183, 107);
+  height: 200px;
+}
+
+/* Texto central en el pie */
+.PI {
+  text-align: center;
+  color: rgb(70, 31, 6);
+  padding-top: 80px;
+  font-family: "Raleway", sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+}

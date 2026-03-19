@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícono en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <!-- Importación de fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/registrarCuentaV.css" />
+    <script src="./src/js/registrarCuentaV.js" type="module" defer></script>
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Regístrate</title>
+</head>
+
+<body>
+
+    <!-- Encabezado de la página con logo y menú de navegación -->
+    <header>
+        <div class="grupo-header">
+            <div class="logo-y-subtitulo">
+                <!-- Enlace a la página principal con logo -->
+                <a href="index.html">
+                    <img src="logoB.png" width="80" alt="Logo SIGREC" />
+                </a>
+                <!-- Subtítulo del sitio -->
+                <p class="subtitulo">SIGREC</p>
+            </div>
+        </div>
+
+        <!-- Barra de navegación principal -->
+        <nav class="menu">
+            <a href="/index.html">Inicio</a>
+            <a href="/Consulta.html">Consulta</a>
+            <a href="/Vendedor.html">Vendedor</a>
+            <a href="/admin.html">Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Mensaje introductorio al registro -->
+        <div class="introduccion">
+            <p>
+                Bienvenido al registro de vendedores, completa el formulario para crear una cuenta
+            </p>
+        </div>
+
+        <!-- Contenedor principal del formulario -->
+        <div class="contenido">
+            <!-- Formulario para registrar vendedores -->
+            <form class="formulario" method="POST" enctype="multipart/form-data">
+                
+                <!-- Columna izquierda del formulario -->
+                <div class="columnaIzquierda">
+                    <!-- Campo para ingresar nombre con validación de solo letras y espacios -->
+                    <label for="nombre">Ingrese su nombre: </label>
+                    <input type="text" name="nombre" id="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required>
+                    
+                    <!-- Campo para apellido paterno con validación -->
+                    <label for="apellidoP">Ingrese su apellido paterno: </label>
+                    <input type="text" name="apellidoP" id="apellidoP" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required>
+
+                    <!-- Campo para apellido materno con validación -->
+                    <label for="apellidoM">Ingrese su apellido materno: </label>
+                    <input type="text" name="apellidoM"  id="apellidoM" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+">
+
+                    <!-- Selección de género -->
+                    <label for="genero">Seleccione su género</label>
+                    <select name="genero" id="genero" class="select">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Otro">Otro</option>
+                    </select> <br />
+                </div>
+
+                <!-- Columna derecha del formulario -->
+                <div class="columnaDerecha">
+                    <!-- Campo para fecha de nacimiento -->
+                    <label for="fechaNacimiento">Ingrese su fecha de nacimiento: </label>
+                    <input type="date" name="fechaNacimiento" id="fechaNacimiento" required />
+
+                    <!-- Campo para número celular con validación de 10 dígitos -->
+                    <label for="numCel">Ingrese su número de celular</label>
+                    <input type="tel" name="numCel" id="numCel" pattern="[0-9]{10}" maxlength="10" required />
+
+                    <!-- Campo para correo electrónico -->
+                    <label for="correoVendedor">Ingrese su correo electrónico</label>
+                    <input type="email" name="correoVendedor" id="correoVendedor" placeholder="correo@electronico.com" required />
+
+                    <!-- Campo para contraseña -->
+                    <label for="contraVendedor">Ingrese una contraseña</label>
+                    <input type="password" name="contraVendedor" id="contraVendedor" placeholder="Ingrese una contraseña" required />
+
+                    <br />  
+                    <!-- Botón para enviar el formulario -->
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

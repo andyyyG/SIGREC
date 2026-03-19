@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Cabecera del documento -->
+    <meta charset="UTF-8">
+    <!-- Codificación de caracteres en UTF-8 -->
+
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <!-- Configuración para que sea responsive en móviles-->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+    <!-- Ícono de la pestaña del navegador -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/busquedaSoli.css" />
+    <!-- Archivo de estilos CSS para esta página -->
+
+    <script src="./src/js/busquedaSoli.js" type="module" defer></script>
+    <!-- Archivo JavaScript para funcionalidad de búsqueda -->
+
+    <title>Búsqueda solicitudes</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+</head>
+
+<body>
+    <!-- Cuerpo principal del sitio -->
+
+    <div class="grid">
+        <!-- Contenedor principal con diseño en grid -->
+
+        <header class="header">
+            <!-- Encabezado de la página -->
+
+            <div class="texto-header">
+                <!-- Contenedor del texto del encabezado -->
+                <p class="subtitulo">Solicitudes</p>
+                <!-- Título de sección -->
+            </div>
+
+        </header>
+
+        <nav class="nav">
+            <!-- Menú de navegación lateral -->
+            <a href="inicioAdmin.html">✎ Inicio</a>
+            <a href="solicitudesGeneralesA.html" class="inicio">✎ Solicitudes</a>
+            <a href="consultasA.html">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+            <!-- Enlace para cerrar sesión (manejado con JavaScript) -->
+        </nav>
+
+        <main class="main">
+            <!-- Contenido principal de la página -->
+
+            <div class="navI">
+                <!-- Submenú para diferentes tipos de solicitudes -->
+                <a href="soliNuevosV.html">Nuevos vendedores</a>
+                <a href="soliRenovacionV.html">Renovación de permiso</a>
+                <a href="soliProductosV.html">Productos</a>
+                <a href="busquedaSoli.html">🔍 Buscar</a>
+            </div>
+
+            <div class="info">
+                <!-- Contenedor para el contenido informativo y funcional -->
+
+                <h3 class="b">
+                    Haz una búsqueda de solicitudes por nombre de vendedor, tipo o estado de la solicitud,
+                    producto o categoría de producto
+                </h3>
+                <!-- Título que explica la funcionalidad principal -->
+
+                <div class="busqueda-container">
+                    <!-- Contenedor del formulario de búsqueda -->
+
+                    <input type="text" id="inputBusqueda" placeholder="Buscar por nombre, producto, categoría..." />
+                    <!-- Campo de texto para búsqueda general -->
+
+                    <select id="selectTipo">
+                        <!-- Selector para filtrar por tipo de solicitud -->
+                        <option value="">Tipo de solicitud</option>
+                        <option value="VendedorNuevo">Nuevo Vendedor</option>
+                        <option value="Vendedor">Renovación</option>
+                        <option value="Productos">Productos</option>
+                    </select>
+
+                    <select id="selectEstado">
+                        <!-- Selector para filtrar por estado -->
+                        <option value="">Estado</option>
+                        <option value="En revisión">En revisión</option>
+                        <option value="Aprobada">Aprobada</option>
+                        <option value="Rechazada">Rechazada</option>
+                    </select>
+
+                    <button id="btnBuscar">🔍 Buscar</button>
+                    <!-- Botón para ejecutar la búsqueda -->
+                </div>
+
+                <div id="resultados"></div>
+                <!-- Contenedor donde se mostrarán los resultados de la búsqueda -->
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Lógica para cerrar sesión al hacer clic en el enlace correspondiente
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita que se recargue o redireccione la página
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            // Muestra una ventana emergente de confirmación
+
+            if (confirmar) {
+                // Si el usuario acepta, se eliminan los datos de sesión del almacenamiento local
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirecciona al usuario a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

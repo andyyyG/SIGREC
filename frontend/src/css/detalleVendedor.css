@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-image: url(/nP.png);
+  background-attachment: fixed;
+  background-size:cover;
+  overflow-y: scroll ;
+}
+
+.cont {
+  max-width: 700px;
+  margin: 80px auto 20px auto; /* centrado horizontal y margen arriba */
+  background-color: #fcda7e;
+  border-radius: 50px;
+  text-align: justify;
+  padding: 30px;
+}
+
+
+.texto{
+    margin-left: 50px;
+    line-height: 35px;
+    font-family: 'Raleway';
+    padding: 30px;
+}
+
+.title{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.tit{
+    font-size: 18px;
+}
+
+.id{
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+#btnRevocar, #btnConfirmarRevocar{
+  cursor: pointer;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+    background-color: #da3c36;
+    }
+}
+
+#motivoRevocar{
+  font-family: 'Raleway';
+  font-size: 15px;
+  padding: 10px;
+}

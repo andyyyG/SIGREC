@@ -1,0 +1,109 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Se especifica que el idioma del contenido es español -->
+
+<head>
+    <!-- Configuración básica de codificación y escala en móviles -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+
+    <!-- Icono que se muestra en la pestaña del navegador -->
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos específica para esta página -->
+    <link rel="stylesheet" href="./src/css/consultaVendedores.css" />
+
+    <!-- Script que contiene la funcionalidad JS para esta vista -->
+    <script src="./src/js/consultaVendedores.js" type="module" defer></script>
+
+    <!-- Título que se muestra en la pestaña del navegador -->
+    <title>Consulta de vendedores</title>
+</head>
+
+<body>
+
+    <!-- Contenedor principal estructurado como grid -->
+    <div class="grid">
+
+        <!-- Encabezado de la página -->
+        <header class="header">
+            <div class="texto-header">
+                <p class="subtitulo">Consultas</p> <!-- Texto principal del encabezado -->
+            </div>
+        </header>
+
+        <!-- Menú de navegación lateral -->
+        <nav class="nav">
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html" class="inicio">✎ Consultas</a>
+            <a href="reportesA.html">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a> <!-- Botón para cerrar sesión -->
+        </nav>
+
+        <!-- Área principal del contenido -->
+        <main class="main">
+
+            <!-- Submenú horizontal de navegación interna -->
+            <div class="navI">
+                <a href="consultaVendedores.html">Vendedores</a>
+                <a href="consultaProductos.html">Productos</a>
+                <a href="estadisticas.html">Estadísticas</a>
+            </div>
+
+            <!-- Sección de información y búsqueda -->
+            <div class="info">
+
+                <!-- Instrucción general -->
+                <h3 class="b">Haz una búsqueda de vendedores por nombre, productos que vende, su categoría o estado de permiso</h3>
+
+                <!-- Contenedor de controles de búsqueda -->
+                <div class="busqueda-container">
+                    <!-- Campo para búsqueda libre -->
+                    <input type="text" id="inputBusqueda" placeholder="Buscar por nombre, producto, categoría..." />
+
+                    <!-- Selector de estado del permiso -->
+                    <select id="selectEstado">
+                        <option value="">Estado del permiso</option>
+                        <option value="En revisión">En revisión</option>
+                        <option value="Aprobado">Aprobado</option>
+                        <option value="Rechazado">Rechazado</option>
+                        <option value="Vencido">Vencido</option>
+                        <option value="Revocado">Revocado</option>
+                    </select>
+
+                    <!-- Botón para ejecutar búsqueda -->
+                    <button id="btnBuscar">🔍 Buscar</button>
+                </div>
+
+                <!-- Aquí se mostrarán los resultados de búsqueda -->
+                <div id="resultados"></div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Script para manejar el cierre de sesión -->
+    <script>
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Prevenir comportamiento por defecto del enlace
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Eliminar identificadores de sesión del almacenamiento local
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redirigir a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/nuevaSolicitudV.css" />
+    <script src="./src/js/nuevaSolicitudV.js" defer></script>
+    <title>Nueva solicitud</title>
+
+</head>
+
+<body>
+
+    <div class="grid"> <!-- Se crea un contenedor principal en formato de cuadrícula -->
+
+        <header class="header"> <!-- Se inserta el encabezado de la página -->
+
+            <div class="texto-header">
+                <p class="subtitulo">Solicitudes</p> <!-- Se muestra el subtítulo del encabezado -->
+            </div>
+
+        </header>
+
+        <nav class="nav"> <!-- Se inserta la barra de navegación lateral -->
+            <a href="inicioVendedor.html" >✎ Inicio</a><br /> <!-- Enlace a inicio -->
+            <a href="infoV.html" >✎ Información</a> <!-- Enlace a la sección de información -->
+            <a href="solicitudesGeneralesV.html" class="inicio">✎ Solicitudes</a> <!-- Se marca como sección activa -->
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a> <!-- Botón para cerrar sesión -->
+        </nav>
+
+        <main class="main"> <!-- Se define la sección principal -->
+
+            <div class="navI"> <!-- Se inserta navegación interna para tipos de solicitud -->
+                <a href="CrearCuentaV.html">Nuevo vendedor</a>
+                <a href="nuevaSolicitudV.html"> Renovar permiso</a>
+                <a href="registrarProductoV.html">Registrar producto</a>
+                <a href="solicitudesV.html">Historial</a>
+            </div>
+
+            <div class="info"> <!-- Sección de contenido informativo -->
+
+                <div id="avisoContainer"> <!-- Se muestra un mensaje de bienvenida -->
+                    <h2 class="bien">Bienvenido a la renovación de permiso</h2>
+                    <p class="ins">
+                        Importante: recuerde que solo puede hacer esta solicitud si su permiso está en estado 'Rechazado', 'Revocado' o 'Vencido'.
+                    </p>
+                    <button type="button" id="btnNuevaSolicitud">Nueva solicitud</button> <!-- Botón para iniciar nueva solicitud -->
+                </div>
+
+                <div id="aviso" style="display: none;"> <!-- Se oculta inicialmente; muestra instrucciones -->
+                    <h2 class="aviso">Completa el formulario para realizar una solicitud de renovación de permiso</h2>
+                </div>
+
+                <!-- Formulario oculto -->
+                <form class="formulario" id="formularioNuevaSolicitud" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <div class="contenedor-flex"> <!-- Contenedor dividido en dos columnas -->
+
+                        <div class="columna-izquierda"> <!-- Columna para archivo y días de venta -->
+
+                            <!-- Se solicita identificación oficial -->
+                            <label for="identificacion" class="la">Adjunte identificación oficial vigente</label><br />
+                            <input type="file" id="identificacion" name="identificacion" required /><br />
+
+                            <!-- Se muestran opciones para elegir días de venta -->
+                            <label class="la">Seleccione sus días de venta</label>
+                            <div class="seccion-checkbox">
+                                <div><input type="checkbox" id="lunes" value="Lunes" name="diasVenta[]" /><label for="lunes">Lunes</label></div>
+                                <div><input type="checkbox" id="martes" value="Martes" name="diasVenta[]" /><label for="martes">Martes</label></div>
+                                <div><input type="checkbox" id="miercoles" value="Miercoles" name="diasVenta[]" /><label for="miercoles">Miércoles</label></div>
+                                <div><input type="checkbox" id="jueves" value="Jueves" name="diasVenta[]" /><label for="jueves">Jueves</label></div>
+                                <div><input type="checkbox" id="viernes" value="Viernes" name="diasVenta[]" /><label for="viernes">Viernes</label></div>
+                                <div><input type="checkbox" id="sabado" value="Sabado" name="diasVenta[]" /><label for="sabado">Sábado</label></div>
+                                <div><input type="checkbox" id="domingo" value="Domingo" name="diasVenta[]" /><label for="domingo">Domingo</label></div>
+                            </div>
+                        </div>
+
+                        <div class="columna-derecha"> <!-- Columna para productos -->
+                            <!-- Se permite agregar productos -->
+                            <label class="la">Agregue los productos que venderá</label>
+                            <div id="productos-container"></div> <!-- Contenedor para inputs dinámicos -->
+
+                            <!-- Botón para agregar más productos -->
+                            <div class="agregar-producto-container">
+                                <button type="button" id="agregarProducto">+ Agregar producto</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <input type="submit" value="Enviar" /> <!-- Botón para enviar el formulario -->
+                </form>
+
+                <div class="btn">
+                    <!-- Botón de cancelar, oculto inicialmente -->
+                    <button type="button" id="btnCancelar" style="display: none;">Cancelar</button>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        // Se agrega funcionalidad al botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Se evita navegación automática al hacer clic
+
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?'); // Se solicita confirmación al usuario
+            if (confirmar) {
+                // Se eliminan los datos del usuario almacenados localmente
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Se redirige a la página de inicio
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

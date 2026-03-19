@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="whrefth=device-whrefth, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/reportesA.css" />
+    <script src="./src/js/reportesA.js" defer></script>
+
+    <title>Reportes</title>
+</head>
+
+<body>
+
+    <div class="grid">
+
+        <header class="header">
+
+            <!-- Título principal de la página -->
+            <div class="texto-header">
+                <p class="subtitulo">Reportes</p>
+            </div>
+
+        </header>
+
+        <!-- Menú de navegación lateral -->
+        <nav class="nav">
+            <a href="inicioAdmin.html">✎ Inicio</a><br />
+            <a href="solicitudesGeneralesA.html">✎ Solicitudes</a>
+            <a href="consultasA.html" >✎ Consultas</a>
+            <a href="reportesA.html" class="inicio">✎ Reportes</a><br />
+            <a href="cuentaA.html">✎ Cuenta</a>
+            <a href="#" id="btnCerrarSesion">✎ Cerrar sesión</a>
+        </nav>
+
+        <main class="main">
+
+            <div class="info">
+                <!-- Descripción de la función principal de la página -->
+                <h3 class="b">Aquí podrás realizar reportes a los vendedores</h3>
+
+                <!-- Input para buscar vendedores por nombre -->
+                <input type="text" id="inputBusqueda" placeholder="Buscar por nombre del vendedor..." />
+
+                <!-- Botón para activar la búsqueda -->
+                <button id="btnBuscar">🔍 Buscar</button>
+
+                <!-- Contenedor para mostrar los resultados de la búsqueda -->
+                <div id="resultadoBusqueda"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Evento para el botón de cerrar sesión
+        document.getElementById('btnCerrarSesion').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita la navegación automática
+
+            // Confirmar acción con el usuario
+            const confirmar = confirm('¿Seguro que quieres cerrar sesión?');
+            if (confirmar) {
+                // Eliminar datos almacenados en localStorage relacionados con la sesión
+                localStorage.removeItem('usuarioId');
+                localStorage.removeItem('vendedorId');
+
+                // Redireccionar al inicio de sesión o página principal
+                window.location.href = 'index.html';
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
